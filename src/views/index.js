@@ -5,6 +5,7 @@ import { Login } from './common/Login/Login';
 import { FourOFour } from './common/FourOFour/FourOFour';
 import { Register } from './common/Register/Register';
 import { Home } from './dependants/Home/Home';
+import { UserManagement } from './dependants/UserManagement/UserManagement';
 import { MobileMenu } from './dependants/mobileMenu/mobileMenu';
 import { Example } from './dependants/Example/Example';
 export {
@@ -13,5 +14,6 @@ export {
   Register,
   Home,
   MobileMenu,
-  FourOFour
+  FourOFour,
+  UserManagement
 };

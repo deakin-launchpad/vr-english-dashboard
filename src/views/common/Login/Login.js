@@ -50,15 +50,15 @@ export const Login = () => {
   const [password, setPassword] = useState('');
   const { devMode, loginStatus, setAccessToken } = useContext(LoginContext);
 
-  const performLogin = useCallback(() => {
+  const performLogin = useCallback(async () => {
     if (DevModeConfig.bypassBackend) {
       setAccessToken('dummyToken');
     } else {
       let details = {
-        username: (devMode ? (DevModeConfig.devDetails !== undefined ? DevModeConfig.devDetails.user : '') : emailId),
+        emailId: (devMode ? (DevModeConfig.devDetails !== undefined ? DevModeConfig.devDetails.user : '') : emailId),
         password: (devMode ? (DevModeConfig.devDetails !== undefined ? DevModeConfig.devDetails.password : '') : password)
       };
-      let apiResponse = API.login(details);
+      let apiResponse = await API.login(details);
       if (apiResponse.success) {
         setAccessToken(apiResponse.data);
       }
